@@ -2,24 +2,24 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script>
-$(document).ready(function(){
+
+  <script>
+  $(document).ready(function() {
     var socket = io.connect();
-    socket.on('message',function(data){
-    var output='출력!!';
-    $(output).prependTo('#content');
-     });
-    $('button').click(function(){
-    socket.emit('message',{
-     
     
+    socket.on('message', function(data) {
+      var output = '출력!!';
+      $(output).prependTo('#content');
     });
-  
+    
+    $('button').click(function() {
+      socket.emit('data', {
+          name: '버튼클릭!'
+      });
+    });
   });
-});
 </script>
 
   </head>
