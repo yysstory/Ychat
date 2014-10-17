@@ -5,18 +5,19 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 
-  <script>
+<script>
   $(document).ready(function() {
     var socket = io.connect();
     
     socket.on('message', function(data) {
-      var output = '출력!!';
+      var output = "";
+      output+='<li><p>'+data.name+'</p></li>';
       $(output).prependTo('#content');
     });
     
-    $('button').click(function() {
-      socket.emit('data', {
-          name: '버튼클릭!'
+    $('#btn').click(function() {
+      socket.emit('message', {
+          "name": "버튼클릭!"
       });
     });
   });
@@ -24,12 +25,12 @@
 
   </head>
   <body>
-    <h1>g</h1>
-    <p>g</p>
+    <h1></h1>
+    <p></p>
      <hr/>
      <input id = "name" />
      <input id = "message" />
-     <button>Button</button>
+     <button id='btn'>Button</button>
      <ul id="content"> </ul>
     
   </body>

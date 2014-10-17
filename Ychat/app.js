@@ -32,7 +32,7 @@ app.get('/users', user.list);
 
 var server = http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
-	fs.readFile('/view/index.html', 'utf8', function(error, data) {
+	fs.readFile('/view/index.ejs', 'utf8', function(error, data) {
 	});
 });
 
