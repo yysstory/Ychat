@@ -7,9 +7,9 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path')
-  , fs =require('fs')
-  , io = require('socket.io');
+  , path = require('path');
+var fs =require('fs');
+var io = require('socket.io');
 
 var app = express();
 
@@ -46,5 +46,8 @@ io.sockets.on('connection',function(socket){
 		io.sockets.emit('message',data);
 	});
 });
+
+
+
 
 
